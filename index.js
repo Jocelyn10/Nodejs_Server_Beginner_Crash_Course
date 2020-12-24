@@ -9,8 +9,9 @@ app.use(bodyParser.json());
 
 // DATABASE
 const mongoose = require("mongoose");
+// mongodb://anu:anucool123@ds231537.mlab.com:31537/college-api
 mongoose
-  .connect("mongodb://anu:anucool123@ds231537.mlab.com:31537/college-api", {
+  .connect("mongodb+srv://admin:admin@cluster0-0p4tg.mongodb.net/Udemy?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -22,7 +23,7 @@ const news = require("./routes/news");
 app.use("/news", news);
 
 // Listenings at port:
-port = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log("Server running at port:" + port);
 });
